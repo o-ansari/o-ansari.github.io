@@ -3,13 +3,13 @@
    ========================= */
 
 @font-face {
-  font-family: "Dazzle Unicase";
-  src: url("../fonts/DazzleUnicase-Bold.woff2") format("woff2"),
-       url("../fonts/DazzleUnicase-Bold.woff") format("woff");
-  font-weight: 700;
+  font-family: "Mont";
+  src: url("../fonts/Mont-HeavyDEMO.woff2") format("woff2");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
+
 
 /* =========================
    Reset & defaults
