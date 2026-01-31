@@ -62,9 +62,9 @@ main {
 
 /* Name in nav */
 .site-title {
-  font-family: "Dazzle Unicase", system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: "Mont", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em; /* optional but recommended */
 }
 
 /* Right-side nav links */
