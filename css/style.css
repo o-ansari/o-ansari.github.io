@@ -104,12 +104,6 @@ body {
   margin: 1rem auto 0 auto;
 }
 
-/* Photo */
-.home-photo {
-  width: min(240px, 70vw);
-  object-fit: cover;
-}
-
 /* Bio text */
 .home-bio {
   text-align: left;
