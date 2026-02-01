@@ -190,213 +190,59 @@ li {
     margin-bottom: 1rem;
   }
 }
-
 /* =========================
-   Infographic CV layout
+   Simple resume page
    ========================= */
 
-.cv {
-  max-width: 1100px;
+.resume-simple {
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.cv-header {
+.resume-simple__header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.cv-name {
-  font-family: "Mont", system-ui, sans-serif;
-  font-weight: 800;
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  line-height: 1.05;
-  margin-bottom: 0.5rem;
-}
-
-.cv-tagline {
+.resume-simple__sub {
   opacity: 0.8;
 }
 
-.cv-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 4rem;
-  row-gap: 2rem;
-  padding: 1rem 0 2rem 0;
+.resume-simple__section {
+  margin-top: 2.5rem;
 }
 
-/* center spine */
-.cv-spine {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 6px;
-  transform: translateX(-50%);
-  background: currentColor;
-  opacity: 0.08;
-  border-radius: 9999px;
+.role {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.cv-col {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-/* blocks */
-.cv-block {
-  position: relative;
-  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
-}
-
-/* left color bar */
-.cv-block::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 10px;
-  border-radius: 2px;
-  background: var(--accent);
-}
-
-/* header row: title + badge on spine */
-.cv-block-head {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.cv-block-title {
-  font-size: 1.1rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-/* badge that appears anchored to the center spine */
-.cv-spine-badge {
-  position: absolute;
-  top: 0.1rem;
-  width: 42px;
-  height: 42px;
-  border-radius: 9999px;
-  background: var(--accent);
-  display: grid;
-  place-items: center;
-  color: #fff;
-}
-
-/* place badges toward the center line depending on column */
-.cv-col:first-child .cv-spine-badge {
-  right: calc(-2rem - 21px); /* nudge into center gap */
-}
-
-.cv-col:last-child .cv-spine-badge {
-  left: calc(-2rem - 21px);
-}
-
-.cv-spine-badge svg {
-  width: 22px;
-  height: 22px;
-  fill: currentColor;
-}
-
-.cv-block-body p {
-  margin-bottom: 0.75rem;
-  max-width: 68ch;
-}
-
-.cv-lines {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cv-lines li {
-  margin-bottom: 0.75rem;
-}
-
-.cv-line-top {
+.role__top {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-}
-
-.cv-line-sub {
-  opacity: 0.85;
-}
-
-/* work experience timeline inside the block */
-.cv-timeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.cv-job {
-  padding: 0.75rem 0 1rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.cv-job:last-child {
-  border-bottom: none;
-}
-
-.cv-job-head {
-  display: flex;
-  justify-content: space-between;
+  align-items: baseline;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.cv-job-title {
-  font-weight: 650;
-}
-
-.cv-job-org,
-.cv-job-dates {
+.role__org,
+.role__dates {
   opacity: 0.8;
 }
 
-.cv-job ul {
+.role ul {
+  margin-top: 0.5rem;
   padding-left: 1.25rem;
-  margin: 0.25rem 0 0 0;
 }
 
-/* accent color variants */
-.cv-red    { --accent: #e53935; }
-.cv-orange { --accent: #fb8c00; }
-.cv-yellow { --accent: #fdd835; }
-.cv-green  { --accent: #43a047; }
-.cv-blue   { --accent: #1e88e5; }
+.role li {
+  margin-bottom: 0.5rem;
+}
 
-/* =========================
-   Mobile: stack into one column
-   ========================= */
-
-@media (max-width: 900px) {
-  .cv-grid {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    padding-left: 1rem;
-  }
-
-  .cv-spine {
-    left: 1rem;
-    width: 4px;
-    transform: none;
-    opacity: 0.12;
-  }
-
-  .cv-col:first-child .cv-spine-badge,
-  .cv-col:last-child .cv-spine-badge {
-    left: calc(-1rem - 21px);
-    right: auto;
+@media (max-width: 640px) {
+  .role__top {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
