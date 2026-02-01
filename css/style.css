@@ -27,12 +27,29 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
   line-height: 1.6;
   color: #111;
   background: #fff;
+
+  /* Use page-level wrappers for spacing instead of forcing max-width everywhere */
   padding: 2rem;
+}
+
+/* Slightly upscale text on large screens */
+@media (min-width: 1100px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   Links
+   ========================= */
+
+a {
+  color: inherit;
 }
 
 /* =========================
@@ -40,7 +57,7 @@ body {
    ========================= */
 
 .site-nav {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .site-nav--center .nav-links {
@@ -49,14 +66,13 @@ body {
   align-items: center;
   gap: 1.25rem;
 
-  /* Mobile friendly wrapping */
+  /* Mobile-friendly wrapping */
   flex-wrap: wrap;
   row-gap: 0.75rem;
 }
 
 .site-nav a {
   text-decoration: none;
-  color: inherit;
 }
 
 /* Icon links (GitHub / LinkedIn) */
@@ -75,54 +91,8 @@ body {
 }
 
 /* =========================
-   Homepage layout
+   Headings & lists defaults
    ========================= */
-
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Big name in Mont Heavy */
-.home-name {
-  font-family: "Mont", system-ui, sans-serif;
-  font-weight: 800;
-  font-size: clamp(2.25rem, 6vw, 4.5rem);
-  line-height: 1.05;
-  margin-bottom: 1.25rem;
-}
-.home-center {
-  max-width: 1100px;
-  width: 100%;
-  padding: 2rem 1rem;
-}
-
-.home-intro {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2.5rem;
-}
-
-.home-photo {
-  width: clamp(280px, 30vw, 420px);
-  height: auto;
-  flex-shrink: 0;
-}
-
-.home-bio {
-  max-width: 480px;
-}
-
-/* =========================
-   Inner pages basic spacing
-   ========================= */
-
-main {
-  max-width: 720px;
-}
 
 h1 {
   margin-bottom: 1rem;
@@ -142,175 +112,96 @@ li {
 }
 
 /* =========================
-   Responsive adjustments
+   Homepage layout (centered + responsive)
    ========================= */
 
-/* Tablet and below */
-@media (max-width: 900px) {
-  body {
-    padding: 1.5rem;
-  }
-
-  .home-intro {
-    gap: 1.5rem;
-    max-width: 760px;
-  }
-
-  .home-bio {
-    max-width: 520px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  body {
-    padding: 1rem;
-  }
-
-  .site-nav {
-    margin-bottom: 2rem;
-  }
-
-  /* Stack image above text on mobile */
-  .home-intro {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.25rem;
-  }
-
-  .home-photo {
-    width: min(260px, 85vw);
-  }
-
-  .home-bio {
-    text-align: left;      /* keep paragraphs readable */
-    max-width: 95vw;       /* allow full width on small screens */
-  }
-
-  .home-name {
-    margin-bottom: 1rem;
-  }
-}
-/* =========================
-   Simple resume page
-   ========================= */
-
-.resume-simple {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.resume-simple__header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.resume-simple__sub {
-  opacity: 0.8;
-}
-
-.resume-simple__section {
-  margin-top: 2.5rem;
-}
-
-.role {
-  margin-top: 1.75rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-}
-
-.role__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.role__org,
-.role__dates {
-  opacity: 0.8;
-}
-
-.role ul {
-  margin-top: 0.5rem;
-  padding-left: 1.25rem;
-}
-
-.role li {
-  margin-bottom: 0.5rem;
-}
-
-@media (max-width: 640px) {
-  .role__top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-/* =========================
-   Home page centering
-   ========================= */
-
-.home {
-  display: flex;
-  justify-content: center;
-}
-
-.home-center {
-  max-width: 900px;
+main.home {
   width: 100%;
-  padding: 2rem 1rem;
+  display: grid;
+  place-items: start center;
+}
+
+/* Center column wrapper */
+.home-center {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 3rem) 0;
   text-align: center;
 }
 
-/* Name */
+/* Big name */
 .home-name {
   font-family: "Mont", system-ui, sans-serif;
   font-weight: 800;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-size: clamp(3rem, 5vw, 5rem);
+  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem) 0;
 }
 
-/* Image + bio row */
+/* Email link/button under name */
+.home-email {
+  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem) 0;
+  text-align: center;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-weight: 500;
+}
+
+.home-email a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.home-email a:hover {
+  border-color: rgba(0, 0, 0, 0.65);
+  transform: translateY(-1px);
+}
+
+/* Image + bio row: grid keeps true visual balance on desktop */
 .home-intro {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  text-align: left; /* text itself reads left, block is centered */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: clamp(1.25rem, 2.5vw, 3rem);
+  justify-items: center;
+  text-align: left; /* paragraphs read left */
 }
 
-/* Image */
+/* Image grows but stays inside its column */
 .home-photo {
-  width: 200px;
+  width: min(100%, 520px);
   height: auto;
-  flex-shrink: 0;
 }
 
-/* Bio text */
+/* Text column */
 .home-bio {
-  max-width: 520px;
+  width: 100%;
+  max-width: 56ch;
+  justify-self: start;
+  font-size: clamp(1rem, 0.9vw, 1.15rem);
 }
 
 .home-bio p {
   margin-bottom: 1rem;
 }
 
-/* =========================
-   Mobile layout
-   ========================= */
-
-@media (max-width: 700px) {
+/* Stack on small screens */
+@media (max-width: 800px) {
   .home-intro {
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
+    grid-template-columns: 1fr;
+  }
+
+  .home-bio {
+    justify-self: center;
+    max-width: 92vw;
   }
 
   .home-photo {
-    width: 180px;
+    width: min(85vw, 420px);
   }
 }
 
@@ -338,7 +229,7 @@ li {
 }
 
 /* =========================
-   Simple resume page (you may already have some of this)
+   Simple resume page
    ========================= */
 
 .resume-simple {
@@ -384,6 +275,13 @@ li {
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 640px) {
+  .role__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* Skills grid */
 .skills-grid {
   display: grid;
@@ -404,188 +302,15 @@ li {
   .skills-grid {
     grid-template-columns: 1fr;
   }
-
-  .role__top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
-
-/* =========================
-   HOME: fix centering + scale for large screens
-   Paste at very bottom of style.css
-   ========================= */
-
-main.home {
-  /* true centering */
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.home-center {
-  /* wider column for 1440p */
-  width: min(1200px, 92vw);
-  margin: 0 auto;
-  padding: clamp(1.5rem, 3vw, 3rem) clamp(1rem, 3vw, 2.5rem);
-
-  /* center the headline like your reference */
-  text-align: center;
-}
-
-/* Big name that scales up on big screens */
-.home-name {
-  font-family: "Mont", system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
-
-  /* bigger on desktop, still safe on mobile */
-  font-size: clamp(3rem, 5vw, 5rem);
-
-  margin: 0 0 clamp(1.5rem, 2.5vw, 2.5rem) 0;
-}
-
-/* Image + text block centered as a UNIT */
-.home-intro {
-  display: flex;
-  justify-content: center; /* centers the row */
-  align-items: flex-start;
-  gap: clamp(1.25rem, 2.5vw, 3rem);
-
-  /* text should read left, but block should be centered */
-  text-align: left;
-}
-
-/* Make image clearly larger on wide displays */
-.home-photo {
-  width: clamp(300px, 26vw, 460px);
-  height: auto;
-  flex-shrink: 0;
-}
-
-/* Constrain text so it doesn't steal width from the image */
-.home-bio {
-  max-width: 58ch; /* great readable line length */
-  font-size: clamp(1rem, 0.9vw, 1.15rem);
-}
-
-.home-bio p {
-  margin-bottom: 1rem;
-}
-
-/* Slightly upscale body text on large screens */
-@media (min-width: 1100px) {
-  body {
-    font-size: 18px;
-  }
-}
-
-/* Mobile: stack */
-@media (max-width: 700px) {
-  .home-intro {
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-  }
-
-  .home-photo {
-    width: min(85vw, 380px);
-  }
-
-  .home-bio {
-    max-width: 92vw;
-  }
-}
-
-/* ===== FORCE true centering on the homepage ===== */
-
-/* Remove any global max-width constraints from generic main */
-main {
-  max-width: none;
-}
-
-main.home {
-  width: 100%;
-  display: grid;
-  place-items: start center; /* centers the whole home content */
-}
-
-/* Center column wrapper */
-.home-center {
-  width: min(1100px, 92vw);
-  margin: 0 auto;
-  padding: clamp(1.5rem, 3vw, 3rem) 0;
-}
-
-/* Title centered */
-.home-name {
-  text-align: center;
-  font-family: "Mont", system-ui, sans-serif;
-  font-weight: 800;
-  font-size: clamp(3rem, 5vw, 5rem);
-  line-height: 1.02;
-  margin: 0 0 clamp(1.5rem, 2.5vw, 2.5rem) 0;
-}
-
-/* Use grid for the hero row to avoid “lopsided flex” */
-.home-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* equal columns = true visual balance */
-  align-items: start;
-  gap: clamp(1.25rem, 2.5vw, 3rem);
-  justify-items: center;
-}
-
-/* Image grows but stays inside its column */
-.home-photo {
-  width: min(100%, 520px);
-  height: auto;
-}
-
-/* Text column: readable width, but centered within its column */
-.home-bio {
-  width: 100%;
-  max-width: 56ch;
-  justify-self: start; /* aligns the text block neatly */
-  font-size: clamp(1rem, 0.9vw, 1.15rem);
-}
-
-@media (max-width: 800px) {
-  .home-intro {
-    grid-template-columns: 1fr;
-  }
-
-  .home-bio {
-    justify-self: center;
-    max-width: 92vw;
-  }
-}
-
-/* =========================
-   Home email link
-   ========================= */
-
-.home-email {
-  margin: 0 0 2.5rem 0;
-  text-align: center;
-  font-size: clamp(1rem, 1.2vw, 1.25rem);
-  font-weight: 500;
-}
-
-.home-email a {
+/* Optional: clean resume link styling */
+.resume-simple a {
   text-decoration: none;
-  color: inherit;
-  padding: 0.4rem 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.35);
-  border-radius: 6px;
-  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.home-email a:hover {
-  border-color: rgba(0, 0, 0, 0.65);
-  transform: translateY(-1px);
+.resume-simple a:hover {
+  text-decoration: underline;
 }
 
 /* =========================
@@ -593,7 +318,7 @@ main.home {
    ========================= */
 
 .projects {
-  width: min(1200px, 92vw);
+  width: min(1600px, 94vw);
   margin: 0 auto;
   padding: 2rem 0 3rem 0;
 }
@@ -611,29 +336,25 @@ main.home {
   opacity: 0.8;
 }
 
-/* Responsive grid: automatically fits tiles to screen */
+/* Grid: 1 col mobile, 2 col tablet, 4 col desktop */
 .project-grid {
   display: grid;
   gap: 1.25rem;
-
-  /* mobile default */
   grid-template-columns: 1fr;
 }
 
-/* tablets */
 @media (min-width: 600px) {
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* desktop */
 @media (min-width: 1200px) {
   .project-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
   }
 }
-
 
 /* Tile */
 .project-tile {
@@ -726,5 +447,25 @@ main.home {
 @media (hover: none) {
   .project-overlay {
     opacity: 1;
+  }
+}
+
+/* =========================
+   Responsive body padding
+   ========================= */
+
+@media (max-width: 900px) {
+  body {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 1rem;
+  }
+
+  .site-nav {
+    margin-bottom: 2rem;
   }
 }
