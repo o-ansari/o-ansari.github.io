@@ -10,7 +10,6 @@
   font-display: swap;
 }
 
-
 /* =========================
    Reset & defaults
    ========================= */
@@ -37,22 +36,18 @@ body {
 }
 
 /* =========================
-   Layout
-   ========================= */
-
-main {
-  max-width: 720px;
-}
-
-/* =========================
-   Navigation
+   Navigation (centered)
    ========================= */
 
 .site-nav {
+  margin-bottom: 3rem;
+}
+
+.site-nav--center .nav-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 4rem;
+  gap: 1.25rem;
 }
 
 .site-nav a {
@@ -60,25 +55,66 @@ main {
   color: inherit;
 }
 
-/* Name in nav */
-.site-title {
-  font-family: "Mont", system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em; /* optional but recommended */
+/* Icon links */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
-/* Right-side nav links */
-.nav-right {
-  display: flex;
-  gap: 1.5rem;
+.icon-link svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
 }
 
 /* =========================
-   Content spacing
+   Homepage layout
    ========================= */
 
-.intro p {
+.home {
+  min-height: calc(100vh - 7rem); /* keeps things vertically balanced */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Big name in Mont Heavy */
+.home-name {
+  font-family: "Mont", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+/* Photo */
+.home-photo {
+  width: min(240px, 70vw);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+/* Bio */
+.home-bio {
+  max-width: 720px;
+}
+
+.home-bio p {
   margin-bottom: 1rem;
+}
+
+/* =========================
+   Basic spacing for inner pages
+   ========================= */
+
+main {
+  max-width: 720px;
 }
 
 h1 {
