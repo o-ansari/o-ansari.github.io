@@ -614,9 +614,26 @@ main.home {
 /* Responsive grid: automatically fits tiles to screen */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.25rem;
+
+  /* mobile default */
+  grid-template-columns: 1fr;
 }
+
+/* tablets */
+@media (min-width: 600px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* desktop */
+@media (min-width: 1200px) {
+  .project-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 
 /* Tile */
 .project-tile {
