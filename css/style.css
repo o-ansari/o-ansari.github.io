@@ -587,3 +587,127 @@ main.home {
   border-color: rgba(0, 0, 0, 0.65);
   transform: translateY(-1px);
 }
+
+/* =========================
+   Projects: tile grid
+   ========================= */
+
+.projects {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 2rem 0 3rem 0;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.projects-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.projects-header p {
+  opacity: 0.8;
+}
+
+/* Responsive grid: automatically fits tiles to screen */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Tile */
+.project-tile {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  aspect-ratio: 16 / 10;
+  outline: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Image fills tile */
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.25s ease;
+}
+
+/* Hover overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78),
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0)
+  );
+
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.project-desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Hover + keyboard focus */
+.project-tile:hover .project-overlay,
+.project-tile:focus-visible .project-overlay {
+  opacity: 1;
+}
+
+.project-tile:hover .project-img,
+.project-tile:focus-visible .project-img {
+  transform: scale(1.06);
+}
+
+.project-tile:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.5);
+  outline-offset: 3px;
+}
+
+/* Touch devices: show overlay by default */
+@media (hover: none) {
+  .project-overlay {
+    opacity: 1;
+  }
+}
