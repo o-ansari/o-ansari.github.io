@@ -562,3 +562,28 @@ main.home {
     max-width: 92vw;
   }
 }
+
+/* =========================
+   Home email link
+   ========================= */
+
+.home-email {
+  margin: 0 0 2.5rem 0;
+  text-align: center;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-weight: 500;
+}
+
+.home-email a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.home-email a:hover {
+  border-color: rgba(0, 0, 0, 0.65);
+  transform: translateY(-1px);
+}
