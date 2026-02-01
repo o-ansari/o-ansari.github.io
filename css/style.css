@@ -383,26 +383,34 @@ main.home {
   position: absolute;
   inset: 0;
   padding: 1rem;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 0.5rem;
 
+  /* Always-visible subtle gradient */
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.78),
-    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.15),
     rgba(0, 0, 0, 0)
   );
-
-  opacity: 0;
-  transition: opacity 0.18s ease;
 }
 
+/* Title is ALWAYS visible */
 .project-title {
   margin: 0;
   font-size: 1.25rem;
   color: #fff;
+}
+
+/* Description + tags hidden by default */
+.project-desc,
+.project-tags {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
 .project-desc {
@@ -427,26 +435,33 @@ main.home {
   color: #fff;
 }
 
-/* Hover + keyboard focus */
-.project-tile:hover .project-overlay,
-.project-tile:focus-visible .project-overlay {
+/* Reveal description + tags on hover / keyboard focus */
+.project-tile:hover .project-desc,
+.project-tile:hover .project-tags,
+.project-tile:focus-visible .project-desc,
+.project-tile:focus-visible .project-tags {
   opacity: 1;
+  transform: translateY(0);
 }
 
+/* Image zoom */
 .project-tile:hover .project-img,
 .project-tile:focus-visible .project-img {
   transform: scale(1.06);
 }
 
+/* Focus ring for accessibility */
 .project-tile:focus-visible {
   outline: 2px solid rgba(0, 0, 0, 0.5);
   outline-offset: 3px;
 }
 
-/* Touch devices: show overlay by default */
+/* Touch devices: show description + tags by default */
 @media (hover: none) {
-  .project-overlay {
+  .project-desc,
+  .project-tags {
     opacity: 1;
+    transform: none;
   }
 }
 
