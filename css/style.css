@@ -311,3 +311,100 @@ li {
     width: 180px;
   }
 }
+
+/* =========================
+   Resume: download button
+   ========================= */
+
+.resume-download-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn:hover {
+  border-color: rgba(0, 0, 0, 0.6);
+}
+
+/* =========================
+   Simple resume page (you may already have some of this)
+   ========================= */
+
+.resume-simple {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem 1rem;
+}
+
+.resume-simple__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.resume-simple__section {
+  margin-top: 2.25rem;
+}
+
+.role {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.role__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.role__org,
+.role__dates {
+  opacity: 0.8;
+}
+
+.role ul {
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.role li {
+  margin-bottom: 0.5rem;
+}
+
+/* Skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skills-block h3 {
+  margin-bottom: 0.5rem;
+}
+
+.skills-block ul {
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
