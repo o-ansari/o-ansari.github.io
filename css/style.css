@@ -499,3 +499,66 @@ main.home {
   }
 }
 
+/* ===== FORCE true centering on the homepage ===== */
+
+/* Remove any global max-width constraints from generic main */
+main {
+  max-width: none;
+}
+
+main.home {
+  width: 100%;
+  display: grid;
+  place-items: start center; /* centers the whole home content */
+}
+
+/* Center column wrapper */
+.home-center {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 3rem) 0;
+}
+
+/* Title centered */
+.home-name {
+  text-align: center;
+  font-family: "Mont", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.02;
+  margin: 0 0 clamp(1.5rem, 2.5vw, 2.5rem) 0;
+}
+
+/* Use grid for the hero row to avoid “lopsided flex” */
+.home-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* equal columns = true visual balance */
+  align-items: start;
+  gap: clamp(1.25rem, 2.5vw, 3rem);
+  justify-items: center;
+}
+
+/* Image grows but stays inside its column */
+.home-photo {
+  width: min(100%, 520px);
+  height: auto;
+}
+
+/* Text column: readable width, but centered within its column */
+.home-bio {
+  width: 100%;
+  max-width: 56ch;
+  justify-self: start; /* aligns the text block neatly */
+  font-size: clamp(1rem, 0.9vw, 1.15rem);
+}
+
+@media (max-width: 800px) {
+  .home-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .home-bio {
+    justify-self: center;
+    max-width: 92vw;
+  }
+}
