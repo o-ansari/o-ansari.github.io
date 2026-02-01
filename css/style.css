@@ -246,3 +246,68 @@ li {
     align-items: flex-start;
   }
 }
+
+/* =========================
+   Home page centering
+   ========================= */
+
+.home {
+  display: flex;
+  justify-content: center;
+}
+
+.home-center {
+  max-width: 900px;
+  width: 100%;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Name */
+.home-name {
+  font-family: "Mont", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 2rem;
+}
+
+/* Image + bio row */
+.home-intro {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  text-align: left; /* text itself reads left, block is centered */
+}
+
+/* Image */
+.home-photo {
+  width: 200px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Bio text */
+.home-bio {
+  max-width: 520px;
+}
+
+.home-bio p {
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   Mobile layout
+   ========================= */
+
+@media (max-width: 700px) {
+  .home-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .home-photo {
+    width: 180px;
+  }
+}
