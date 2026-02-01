@@ -95,9 +95,11 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
+
   max-width: 900px;
-  margin-top: 1rem;
+  margin: 1rem auto 0 auto;
 }
+
 
 /* Photo */
 .home-photo {
