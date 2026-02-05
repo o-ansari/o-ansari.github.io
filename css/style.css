@@ -405,13 +405,13 @@ main.home {
   right: 0;
   bottom: 0;
 
-  padding: 1rem;
+  padding: clamp(0.75rem, 2vw, 1rem);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: clamp(0.35rem, 1vw, 0.5rem);
 
   /* The drawer starts short (title only) */
-  max-height: 3.1rem; /* adjust if your title wraps */
+  max-height: 3.1rem;
   overflow: hidden;
 
   background: linear-gradient(
@@ -427,7 +427,7 @@ main.home {
 .project-title {
   margin: 0;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.2;
 }
 
@@ -442,24 +442,25 @@ main.home {
   margin: 0;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: clamp(0.3rem, 1vw, 0.5rem);
   margin-top: 0.25rem;
 }
 
 .tag {
   display: inline-block;
-  font-size: 0.85rem;
-  padding: 0.2rem 0.5rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  padding: clamp(0.15rem, 0.5vw, 0.2rem) clamp(0.35rem, 1vw, 0.5rem);
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
+  white-space: nowrap;
 }
-
 .project-tile:hover .project-overlay,
 .project-tile:focus-visible .project-overlay {
   max-height: 12rem;
@@ -493,5 +494,24 @@ main.home {
   .project-tags {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Better sizing for mobile phones */
+@media (max-width: 600px) {
+  .project-title {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+  }
+  
+  .project-desc {
+    font-size: clamp(0.875rem, 2vw, 0.95rem);
+  }
+  
+  .tag {
+    font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+  }
+
+  .project-grid {
+    gap: 1.5rem;
   }
 }
